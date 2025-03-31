@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="logo.png">
+    <title>Terms of Service </title>
+    <style>
+        :root {
+            --primary-color: #4285F4;
+            --secondary-color: #34A853;
+            --accent-color: #EA4335;
+            --text-color: #333;
+            --light-gray: #f5f5f5;
+            --white: #ffffff;
+            --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--light-gray);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--white);
+            box-shadow: var(--box-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-color), #5c9ce5);
+            color: var(--white);
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .page-header p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .content-section {
+            background-color: var(--white);
+            padding: 60px 0;
+        }
+        
+        .terms-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .terms-content h2 {
+            color: var(--primary-color);
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .terms-content h3 {
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .terms-content p, .terms-content ul {
+            margin-bottom: 20px;
+        }
+        
+        .terms-content ul {
+            margin-left: 20px;
+        }
+        
+        .terms-content ul li {
+            margin-bottom: 10px;
+        }
+        
+        .terms-content .emphasis {
+            background-color: #f0f7ff;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+            margin: 30px 0;
+        }
+        
+        .last-updated {
+            font-style: italic;
+            color: #666;
+            margin-top: 50px;
+        }
+        
+        footer {
+            background-color: #333;
+            color: var(--white);
+            padding: 40px 0;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+        }
+        
+        .footer-section {
+            flex: 1 1 300px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: var(--primary-color);
+        }
+        
+        .footer-bottom {
+            margin-top: 40px;
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #555;
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .nav-links li {
+                margin-left: 0;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+        }
+        
+        .table-of-contents {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+        
+        .table-of-contents h3 {
+            margin-top: 0;
+        }
+        
+        .table-of-contents ul {
+            margin-bottom: 0;
+        }
+        
+        .table-of-contents a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+        
+        .table-of-contents a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">Eazy<span>Mail</span></a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Terms of Service</h1>
+            <p>Please read these terms carefully before using EazyMail.</p>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <div class="terms-content">
+                <div class="table-of-contents">
+                    <h3>Table of Contents</h3>
+                    <ul>
+                        <li><a href="#acceptance">1. Acceptance of Terms</a></li>
+                        <li><a href="#description">2. Service Description</a></li>
+                        <li><a href="#account">3. User Accounts and Gmail API</a></li>
+                        <li><a href="#license">4. License and Usage Rights</a></li>
+                        <li><a href="#restrictions">5. Restrictions on Use</a></li>
+                        <li><a href="#privacy">6. Privacy and Data Handling</a></li>
+                        <li><a href="#disclaimer">7. Disclaimers and Warranties</a></li>
+                        <li><a href="#liability">8. Limitation of Liability</a></li>
+                        <li><a href="#termination">9. Termination</a></li>
+                        <li><a href="#changes">10. Changes to Terms</a></li>
+                        <li><a href="#law">11. Governing Law</a></li>
+                        <li><a href="#contact">12. Contact Information</a></li>
+                    </ul>
+                </div>
+
+                <h2 id="acceptance">1. Acceptance of Terms</h2>
+                <p>By downloading, installing, accessing, or using the EazyMail application ("App"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, you may not use the App.</p>
+                
+                <p>These Terms constitute a legally binding agreement between you and EazyMail ("we," "us," or "our") regarding your use of the App. You represent and warrant that you have the legal capacity to enter into this agreement.</p>
+
+                <h2 id="description">2. Service Description</h2>
+                <p>EazyMail is an application that connects to your Gmail account through the Gmail API to provide an enhanced viewing experience for your emails. The App allows you to view, organize, and customize the presentation of your emails without storing any of your data on our servers.</p>
+                
+                <div class="emphasis">
+                    <p><strong>Important:</strong> EazyMail does not store, collect, or retain any of your emails or personal data on our servers. All processing occurs locally on your device.</p>
+                </div>
+
+                <h2 id="account">3. User Accounts and Gmail API</h2>
+                <p>To use EazyMail, you must have a valid Gmail account and grant our App permission to access your Gmail data through Google's OAuth 2.0 authentication process.</p>
+                
+                <p>By using our App, you authorize us to access your Gmail account data solely for the purposes of providing the services described in these Terms and our Privacy Policy. We adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
+                
+                <p>You are responsible for maintaining the confidentiality of your Google account credentials and for all activities that occur under your account. You agree to notify us immediately of any unauthorized use of your account.</p>
+
+                <h2 id="license">4. License and Usage Rights</h2>
+                <p>Subject to your compliance with these Terms, we grant you a limited, non-exclusive, non-transferable, revocable license to download, install, and use the App for your personal, non-commercial use on compatible devices that you own or control.</p>
+                
+                <p>This license does not grant you any right to:</p>
+                <ul>
+                    <li>Copy, modify, or create derivative works of the App</li>
+                    <li>Distribute, transfer, sublicense, lease, lend, or rent the App to any third party</li>
+                    <li>Reverse engineer, decompile, or disassemble the App</li>
+                    <li>Use the App in violation of applicable laws or regulations</li>
+                </ul>
+
+                <h2 id="restrictions">5. Restrictions on Use</h2>
+                <p>You agree not to use the App to:</p>
+                <ul>
+                    <li>Violate any applicable laws, regulations, or third-party rights</li>
+                    <li>Engage in any unauthorized access to or use of our servers or any other user's data</li>
+                    <li>Transmit any viruses, worms, defects, Trojan horses, or other items of a destructive nature</li>
+                    <li>Interfere with or disrupt the integrity or performance of the App</li>
+                    <li>Attempt to gain unauthorized access to the App or its related systems or networks</li>
+                    <li>Use the App for any commercial purposes without our express prior written consent</li>
+                </ul>
+
+                <h2 id="privacy">6. Privacy and Data Handling</h2>
+                <p>Our privacy practices are described in our <a href="privacy.html">Privacy Policy</a>, which is incorporated into these Terms. By using the App, you agree to our collection, use, and disclosure practices as described in the Privacy Policy.</p>
+                
+                <p>We are committed to protecting your privacy and the security of your personal information. EazyMail does not store any of your emails or personal data on our servers. All data processing occurs locally on your device.</p>
+
+                <h2 id="disclaimer">7. Disclaimers and Warranties</h2>
+                <p>THE APP IS PROVIDED "AS IS" AND "AS AVAILABLE," WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED. TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, WE EXPLICITLY DISCLAIM ALL WARRANTIES, WHETHER EXPRESS, IMPLIED, OR STATUTORY, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.</p>
+                
+                <p>WE DO NOT WARRANT THAT THE APP WILL FUNCTION UNINTERRUPTED, ERROR-FREE, OR THAT DEFECTS WILL BE CORRECTED. WE MAKE NO WARRANTY REGARDING THE RELIABILITY, TIMELINESS, ACCURACY, OR COMPLETENESS OF THE APP.</p>
+                
+                <p>YOU UNDERSTAND AND AGREE THAT YOUR USE OF THE APP IS AT YOUR OWN RISK. SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OF IMPLIED WARRANTIES, SO THE ABOVE EXCLUSIONS MAY NOT APPLY TO YOU.</p>
+
+                <h2 id="liability">8. Limitation of Liability</h2>
+                <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL WE, OUR AFFILIATES, OFFICERS, DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE FOR ANY INDIRECT, PUNITIVE, INCIDENTAL, SPECIAL, CONSEQUENTIAL DAMAGES, OR ANY DAMAGES WHATSOEVER, INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF PROFITS, GOODWILL, USE, DATA, OR OTHER INTANGIBLE LOSSES, RESULTING FROM:</p>
+                <ul>
+                    <li>YOUR ACCESS TO OR USE OF OR INABILITY TO ACCESS OR USE THE APP</li>
+                    <li>ANY CONDUCT OR CONTENT OF ANY THIRD PARTY ON THE APP</li>
+                    <li>ANY CONTENT OBTAINED FROM THE APP</li>
+                    <li>UNAUTHORIZED ACCESS, USE, OR ALTERATION OF YOUR TRANSMISSIONS OR CONTENT</li>
+                </ul>
+                
+                <p>OUR TOTAL LIABILITY TO YOU FOR ANY CLAIM ARISING FROM OR RELATING TO THESE TERMS OR THE APP SHALL NOT EXCEED THE AMOUNT PAID BY YOU TO US FOR THE APP DURING THE TWELVE (12) MONTHS PRIOR TO SUCH CLAIM.</p>
+                
+                <p>SOME JURISDICTIONS DO NOT ALLOW THE LIMITATION OF LIABILITY, SO THE ABOVE LIMITATIONS MAY NOT APPLY TO YOU.</p>
+
+                <h2 id="termination">9. Termination</h2>
+                <p>We may terminate or suspend your access to the App immediately, without prior notice or liability, for any reason, including, without limitation, if you breach these Terms.</p>
+                
+                <p>Upon termination, your right to use the App will immediately cease. All provisions of these Terms which by their nature should survive termination shall survive, including, without limitation, ownership provisions, warranty disclaimers, indemnity, and limitations of liability.</p>
+                
+                <p>You may terminate these Terms at any time by uninstalling the App from your device and revoking its access to your Gmail account in your Google Account settings.</p>
+
+                <h2 id="changes">10. Changes to Terms</h2>
+                <p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time. We will provide notice of significant changes to the Terms by posting a notice on our website or through the App. Your continued use of the App after such modifications will constitute your acknowledgment and acceptance of the modified Terms.</p>
+                
+                <p>We encourage you to periodically review the Terms to stay informed about our service provisions and guidelines.</p>
+
+                <h2 id="law">11. Governing Law</h2>
+                <p>These Terms shall be governed by and construed in accordance with the laws of the United States, without regard to its conflict of law principles. Any legal action or proceeding arising under these Terms shall be brought exclusively in the federal or state courts located in the United States, and you consent to the personal jurisdiction therein.</p>
+                
+                <p>If any provision of these Terms is held to be invalid or unenforceable, such provision shall be struck and the remaining provisions shall be enforced to the fullest extent under law.</p>
+
+                <h2 id="contact">12. Contact Information</h2>
+                <p>If you have any questions about these Terms, please contact us at:</p>
+                <p>Email: mail.swap.official@gmail.com</p>
+                
+                <p class="last-updated">Last Updated: March 31, 2025</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>EazyMail</h3>
+                    <p>A better way to experience Gmail without compromising your privacy.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Important Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p>Email: mail.swap.official@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 EazyMail. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
