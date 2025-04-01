@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="logo.png">
-    <title>Terms of Service </title>
+    <title>Terms of Service | EazyMail</title>
     <style>
         :root {
             --primary-color: #4285F4;
@@ -70,6 +70,7 @@
         
         .nav-links li {
             margin-left: 30px;
+            align-content: end;
         }
         
         .nav-links a {
@@ -81,6 +82,26 @@
         
         .nav-links a:hover {
             color: var(--primary-color);
+        }
+        
+        /* Hamburger menu styles */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+            background: transparent;
+            border: none;
+            padding: 0;
+        }
+        
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background-color: var(--primary-color);
+            transition: all 0.3s linear;
         }
         
         .page-header {
@@ -198,19 +219,67 @@
         }
         
         @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                gap: 20px;
+            .hamburger {
+                display: flex;
+                z-index: 101;
             }
             
             .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 250px;
+                height: 100vh;
+                padding-top: H0px;
                 flex-direction: column;
-                align-items: center;
-                gap: 15px;
+                background-color: var(--white);
+                box-shadow: -5px 0 10px rgba(0, 0, 0, 0.1);
+                transition: right 0.3s ease-in-out;
+                align-items: flex-start;
+                padding: 80px 20px 20px;
+                z-index: 100;
+            }
+            
+            .nav-links.active {
+                right: 0;
             }
             
             .nav-links li {
-                margin-left: 0;
+                margin: 15px 0;
+                width: 100%;
+            }
+            
+            .nav-links a {
+                display: block;
+                font-size: 18px;
+            }
+            
+            .overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 99;
+            }
+            
+            .overlay.active {
+                display: block;
+            }
+            
+            /* Hamburger animation */
+            .hamburger.active span:nth-child(1) {
+                transform: translateY(11px) rotate(45deg);
+            }
+            
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active span:nth-child(3) {
+                transform: translateY(-11px) rotate(-45deg);
             }
             
             .page-header h1 {
@@ -248,11 +317,20 @@
         <div class="container">
             <nav class="navbar">
                 <a href="index.html" class="logo">Eazy<span>Mail</span></a>
+                
+                <button class="hamburger" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="privacy.html">Privacy Policy</a></li>
                     <li><a href="terms.html">Terms of Service</a></li>
                 </ul>
+                
+                <div class="overlay"></div>
             </nav>
         </div>
     </header>
@@ -272,40 +350,66 @@
                     <ul>
                         <li><a href="#acceptance">1. Acceptance of Terms</a></li>
                         <li><a href="#description">2. Service Description</a></li>
-                        <li><a href="#account">3. User Accounts and Gmail API</a></li>
-                        <li><a href="#license">4. License and Usage Rights</a></li>
-                        <li><a href="#restrictions">5. Restrictions on Use</a></li>
-                        <li><a href="#privacy">6. Privacy and Data Handling</a></li>
-                        <li><a href="#disclaimer">7. Disclaimers and Warranties</a></li>
-                        <li><a href="#liability">8. Limitation of Liability</a></li>
-                        <li><a href="#termination">9. Termination</a></li>
-                        <li><a href="#changes">10. Changes to Terms</a></li>
-                        <li><a href="#law">11. Governing Law</a></li>
-                        <li><a href="#contact">12. Contact Information</a></li>
+                        <li><a href="#account">3. User Accounts and Gmail API Access</a></li>
+                        <li><a href="#data">4. Data Usage and Scope of Gmail Access</a></li>
+                        <li><a href="#license">5. License and Usage Rights</a></li>
+                        <li><a href="#restrictions">6. Restrictions on Use</a></li>
+                        <li><a href="#privacy">7. Privacy and Data Protection</a></li>
+                        <li><a href="#security">8. Security Measures</a></li>
+                        <li><a href="#disclaimer">9. Disclaimers and Warranties</a></li>
+                        <li><a href="#liability">10. Limitation of Liability</a></li>
+                        <li><a href="#termination">11. Termination</a></li>
+                        <li><a href="#changes">12. Changes to Terms</a></li>
+                        <li><a href="#law">13. Governing Law</a></li>
+                        <li><a href="#contact">14. Contact Information</a></li>
                     </ul>
                 </div>
 
                 <h2 id="acceptance">1. Acceptance of Terms</h2>
-                <p>By downloading, installing, accessing, or using the EazyMail application ("App"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, you may not use the App.</p>
+                <p>By accessing or using the EazyMail application ("App"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use our App.</p>
                 
-                <p>These Terms constitute a legally binding agreement between you and EazyMail ("we," "us," or "our") regarding your use of the App. You represent and warrant that you have the legal capacity to enter into this agreement.</p>
+                <p>These Terms constitute a legally binding agreement between you and EazyMail ("we," "us," or "our") regarding your use of the App. You represent and warrant that you are at least 18 years of age and have the legal capacity to enter into this agreement.</p>
 
                 <h2 id="description">2. Service Description</h2>
-                <p>EazyMail is an application that connects to your Gmail account through the Gmail API to provide an enhanced viewing experience for your emails. The App allows you to view, organize, and customize the presentation of your emails without storing any of your data on our servers.</p>
+                <p>EazyMail is an application that integrates with Gmail to provide an enhanced email management experience. Our App allows you to read, send, and receive emails through your existing Gmail account with improved organization and user interface features.</p>
                 
                 <div class="emphasis">
-                    <p><strong>Important:</strong> EazyMail does not store, collect, or retain any of your emails or personal data on our servers. All processing occurs locally on your device.</p>
+                    <p><strong>Important:</strong> EazyMail processes your emails to provide the service but does not use your data for advertising purposes. We only access the data necessary to provide the functionality you request. All data processing complies with Google's API Services User Data Policy.</p>
                 </div>
 
-                <h2 id="account">3. User Accounts and Gmail API</h2>
-                <p>To use EazyMail, you must have a valid Gmail account and grant our App permission to access your Gmail data through Google's OAuth 2.0 authentication process.</p>
+                <h2 id="account">3. User Accounts and Gmail API Access</h2>
+                <p>To use EazyMail, you must have a valid Gmail account and grant our App permission to access certain Gmail data through Google's OAuth 2.0 authentication process. The specific permissions we request are:</p>
                 
-                <p>By using our App, you authorize us to access your Gmail account data solely for the purposes of providing the services described in these Terms and our Privacy Policy. We adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
+                <ul>
+                    <li><strong>Read your email messages and settings</strong> - This allows EazyMail to display your emails and customize your experience based on your Gmail settings.</li>
+                    <li><strong>Send email on your behalf</strong> - This allows you to compose and send emails through our interface.</li>
+                    <li><strong>Manage your mail</strong> - This allows you to organize, label, and manage your emails through our interface.</li>
+                </ul>
                 
-                <p>You are responsible for maintaining the confidentiality of your Google account credentials and for all activities that occur under your account. You agree to notify us immediately of any unauthorized use of your account.</p>
+                <p>You may revoke these permissions at any time by visiting your <a href="https://myaccount.google.com/permissions" target="_blank">Google Account Permissions</a> page.</p>
+                
+                <p>You are responsible for maintaining the confidentiality of your Google account credentials. You agree to notify us immediately of any unauthorized use of your account or any other breach of security.</p>
 
-                <h2 id="license">4. License and Usage Rights</h2>
-                <p>Subject to your compliance with these Terms, we grant you a limited, non-exclusive, non-transferable, revocable license to download, install, and use the App for your personal, non-commercial use on compatible devices that you own or control.</p>
+                <h2 id="data">4. Data Usage and Scope of Gmail Access</h2>
+                <p>Our use of Gmail API services adheres strictly to the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank">Google API Services User Data Policy</a>. Specifically:</p>
+                
+                <ul>
+                    <li>We access your Gmail data only to provide or improve user-facing features that are prominent and directly relevant to the app's functionality.</li>
+                    <li>We do not use Gmail data for serving advertisements.</li>
+                    <li>We do not sell or share your Gmail data with third parties except as necessary to provide and improve the App's features.</li>
+                    <li>Human access to your Gmail data is limited to specific cases such as responding to your support requests, troubleshooting, or complying with applicable laws.</li>
+                    <li>Our App undergoes regular security assessments to ensure the safety of your data.</li>
+                </ul>
+                
+                <p>We request and use the minimum scopes necessary to provide our service functionality:</p>
+                <ul>
+                    <li><code><a href="https://developers.google.com/gmail/api/auth/scopes#gmailreadonly" target="_blank">https://www.googleapis.com/auth/gmail.readonly</a></code> - To read and display your emails</li>
+                    <li><code><a href="https://developers.google.com/gmail/api/auth/scopes#gmailsend" target="_blank">https://www.googleapis.com/auth/gmail.send</a></code> - To send emails on your behalf</li>
+                    <li><code><a href="https://developers.google.com/gmail/api/auth/scopes#gmailmodify" target="_blank">https://www.googleapis.com/auth/gmail.modify</a></code> - To modify email settings and apply labels</li>
+                </ul>                
+
+                <h2 id="license">5. License and Usage Rights</h2>
+                <p>Subject to your compliance with these Terms, we grant you a limited, non-exclusive, non-transferable, revocable license to download, install, and use the App for your personal or business use on devices that you own or control.</p>
                 
                 <p>This license does not grant you any right to:</p>
                 <ul>
@@ -315,31 +419,48 @@
                     <li>Use the App in violation of applicable laws or regulations</li>
                 </ul>
 
-                <h2 id="restrictions">5. Restrictions on Use</h2>
+                <h2 id="restrictions">6. Restrictions on Use</h2>
                 <p>You agree not to use the App to:</p>
                 <ul>
                     <li>Violate any applicable laws, regulations, or third-party rights</li>
-                    <li>Engage in any unauthorized access to or use of our servers or any other user's data</li>
-                    <li>Transmit any viruses, worms, defects, Trojan horses, or other items of a destructive nature</li>
-                    <li>Interfere with or disrupt the integrity or performance of the App</li>
-                    <li>Attempt to gain unauthorized access to the App or its related systems or networks</li>
-                    <li>Use the App for any commercial purposes without our express prior written consent</li>
+                    <li>Send unsolicited or unauthorized advertising, promotional materials, spam, or any other form of unwanted solicitation</li>
+                    <li>Impersonate any person or entity, or falsely state or otherwise misrepresent your affiliation with a person or entity</li>
+                    <li>Interfere with or disrupt the integrity or performance of the App or third-party networks or services</li>
+                    <li>Attempt to gain unauthorized access to the App, user accounts, or related systems</li>
+                    <li>Use any automated process or service to access or use the service</li>
+                    <li>Introduce any malware, viruses, or other harmful code into the App or any connected systems</li>
                 </ul>
 
-                <h2 id="privacy">6. Privacy and Data Handling</h2>
+                <h2 id="privacy">7. Privacy and Data Protection</h2>
                 <p>Our privacy practices are described in our <a href="privacy.html">Privacy Policy</a>, which is incorporated into these Terms. By using the App, you agree to our collection, use, and disclosure practices as described in the Privacy Policy.</p>
                 
-                <p>We are committed to protecting your privacy and the security of your personal information. EazyMail does not store any of your emails or personal data on our servers. All data processing occurs locally on your device.</p>
-
-                <h2 id="disclaimer">7. Disclaimers and Warranties</h2>
-                <p>THE APP IS PROVIDED "AS IS" AND "AS AVAILABLE," WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED. TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, WE EXPLICITLY DISCLAIM ALL WARRANTIES, WHETHER EXPRESS, IMPLIED, OR STATUTORY, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.</p>
+                <p>We are committed to protecting your privacy and the security of your personal information. We implement appropriate technical and organizational measures to protect your data against unauthorized or unlawful processing and against accidental loss, destruction, or damage.</p>
                 
-                <p>WE DO NOT WARRANT THAT THE APP WILL FUNCTION UNINTERRUPTED, ERROR-FREE, OR THAT DEFECTS WILL BE CORRECTED. WE MAKE NO WARRANTY REGARDING THE RELIABILITY, TIMELINESS, ACCURACY, OR COMPLETENESS OF THE APP.</p>
+                <div class="emphasis">
+                    <p><strong>Data Processing:</strong> EazyMail processes your Gmail data only to provide the functionality of our service. We do not use your data for advertising purposes, and we do not sell your data to third parties.</p>
+                </div>
+
+                <h2 id="security">8. Security Measures</h2>
+                <p>We implement and maintain reasonable security measures to protect your data:</p>
+                <ul>
+                    <li>We use industry-standard encryption protocols for data transmission</li>
+                    <li>We regularly update our security practices to address new threats</li>
+                    <li>We limit access to your personal data to authorized personnel only</li>
+                    <li>We perform regular security audits and vulnerability assessments</li>
+                    <li>We promptly address any security vulnerabilities that are discovered</li>
+                </ul>
+                
+                <p>While we take steps to protect your information, no system is completely secure. You are responsible for maintaining the security of your Google account credentials.</p>
+
+                <h2 id="disclaimer">9. Disclaimers and Warranties</h2>
+                <p>THE APP IS PROVIDED "AS IS" AND "AS AVAILABLE," WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED. TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, WE EXPLICITLY DISCLAIM ALL WARRANTIES, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.</p>
+                
+                <p>WE DO NOT WARRANT THAT THE APP WILL FUNCTION UNINTERRUPTED, ERROR-FREE, OR THAT DEFECTS WILL BE CORRECTED. WE MAKE NO WARRANTY REGARDING THE RELIABILITY, ACCURACY, OR COMPLETENESS OF THE APP.</p>
                 
                 <p>YOU UNDERSTAND AND AGREE THAT YOUR USE OF THE APP IS AT YOUR OWN RISK. SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OF IMPLIED WARRANTIES, SO THE ABOVE EXCLUSIONS MAY NOT APPLY TO YOU.</p>
 
-                <h2 id="liability">8. Limitation of Liability</h2>
-                <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL WE, OUR AFFILIATES, OFFICERS, DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE FOR ANY INDIRECT, PUNITIVE, INCIDENTAL, SPECIAL, CONSEQUENTIAL DAMAGES, OR ANY DAMAGES WHATSOEVER, INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF PROFITS, GOODWILL, USE, DATA, OR OTHER INTANGIBLE LOSSES, RESULTING FROM:</p>
+                <h2 id="liability">10. Limitation of Liability</h2>
+                <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL WE, OUR AFFILIATES, DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE FOR ANY INDIRECT, PUNITIVE, INCIDENTAL, SPECIAL, CONSEQUENTIAL DAMAGES, OR ANY DAMAGES WHATSOEVER, INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF PROFITS, GOODWILL, USE, DATA, OR OTHER INTANGIBLE LOSSES, RESULTING FROM:</p>
                 <ul>
                     <li>YOUR ACCESS TO OR USE OF OR INABILITY TO ACCESS OR USE THE APP</li>
                     <li>ANY CONDUCT OR CONTENT OF ANY THIRD PARTY ON THE APP</li>
@@ -351,28 +472,33 @@
                 
                 <p>SOME JURISDICTIONS DO NOT ALLOW THE LIMITATION OF LIABILITY, SO THE ABOVE LIMITATIONS MAY NOT APPLY TO YOU.</p>
 
-                <h2 id="termination">9. Termination</h2>
-                <p>We may terminate or suspend your access to the App immediately, without prior notice or liability, for any reason, including, without limitation, if you breach these Terms.</p>
+                <h2 id="termination">11. Termination</h2>
+                <p>We may suspend or terminate your access to the App at any time for any reason, including if you violate these Terms.</p>
+                
+                <p>You may terminate these Terms at any time by:</p>
+                <ul>
+                    <li>Uninstalling the App from your device</li>
+                    <li>Revoking the App's access to your Gmail account through your <a href="https://myaccount.google.com/permissions" target="_blank">Google Account Permissions</a> page</li>
+                </ul>
                 
                 <p>Upon termination, your right to use the App will immediately cease. All provisions of these Terms which by their nature should survive termination shall survive, including, without limitation, ownership provisions, warranty disclaimers, indemnity, and limitations of liability.</p>
-                
-                <p>You may terminate these Terms at any time by uninstalling the App from your device and revoking its access to your Gmail account in your Google Account settings.</p>
 
-                <h2 id="changes">10. Changes to Terms</h2>
+                <h2 id="changes">12. Changes to Terms</h2>
                 <p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time. We will provide notice of significant changes to the Terms by posting a notice on our website or through the App. Your continued use of the App after such modifications will constitute your acknowledgment and acceptance of the modified Terms.</p>
                 
                 <p>We encourage you to periodically review the Terms to stay informed about our service provisions and guidelines.</p>
 
-                <h2 id="law">11. Governing Law</h2>
+                <h2 id="law">13. Governing Law</h2>
                 <p>These Terms shall be governed by and construed in accordance with the laws of the United States, without regard to its conflict of law principles. Any legal action or proceeding arising under these Terms shall be brought exclusively in the federal or state courts located in the United States, and you consent to the personal jurisdiction therein.</p>
                 
                 <p>If any provision of these Terms is held to be invalid or unenforceable, such provision shall be struck and the remaining provisions shall be enforced to the fullest extent under law.</p>
 
-                <h2 id="contact">12. Contact Information</h2>
-                <p>If you have any questions about these Terms, please contact us at:</p>
-                <p>Email: mail.swap.official@gmail.com</p>
+                <h2 id="contact">14. Contact Information</h2>
+                <p>If you have any questions about these Terms, concerns about our data practices, or need assistance with our App, please contact us at:</p>
+                <p>Email: <a href="mailto:mail.swap.official@gmail.com">mail.swap.official@gmail.com</a></p>
+                <!-- <p>Website: <a href="https://www.eazymail.app">https://www.eazymail.app</a></p> -->
                 
-                <p class="last-updated">Last Updated: March 31, 2025</p>
+                <p class="last-updated">Last Updated: March 24, 2025</p>
             </div>
         </div>
     </section>
@@ -382,7 +508,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>EazyMail</h3>
-                    <p>A better way to experience Gmail without compromising your privacy.</p>
+                    <p>A better way to experience Gmail with enhanced organization and reading features.</p>
                 </div>
                 <div class="footer-section">
                     <h3>Important Links</h3>
@@ -390,11 +516,13 @@
                         <li><a href="index.html">Home</a></li>
                         <li><a href="privacy.html">Privacy Policy</a></li>
                         <li><a href="terms.html">Terms of Service</a></li>
+                        <!-- <li><a href="https://support.eazymail.app">Support</a></li> -->
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h3>Contact Us</h3>
-                    <p>Email: mail.swap.official@gmail.com</p>
+                    <p>Email: <a href="mailto:mail.swap.official@gmail.com">mail.swap.official@gmail.com</a></p>
+                    <!-- <p>Website: <a href="https://www.eazymail.app">www.eazymail.app</a></p> -->
                 </div>
             </div>
             <div class="footer-bottom">
@@ -417,6 +545,30 @@
                         top: targetElement.offsetTop - 100,
                         behavior: 'smooth'
                     });
+                }
+            });
+        });
+        
+        // Hamburger menu functionality
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        const overlay = document.querySelector('.overlay');
+        
+        function toggleMenu() {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+        }
+        
+        hamburger.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+        
+        // Close menu when nav link is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinks.classList.contains('active')) {
+                    toggleMenu();
                 }
             });
         });
