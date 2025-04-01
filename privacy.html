@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="logo.png">
-    <title>Privacy Policy </title>
+    <title>Privacy Policy - EazyMail</title>
     <style>
         :root {
             --primary-color: #4285F4;
@@ -82,6 +82,27 @@
         .nav-links a:hover {
             color: var(--primary-color);
         }
+        
+        /* Hamburger menu styles */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+            background: transparent;
+            border: none;
+            padding: 0;
+        }
+        
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background-color: var(--primary-color);
+            transition: all 0.3s linear;
+        }
+        
         
         .page-header {
             background: linear-gradient(135deg, var(--primary-color), #5c9ce5);
@@ -198,19 +219,46 @@
         }
         
         @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                gap: 20px;
+            .hamburger {
+                display: flex;
+                z-index: 101;
             }
             
             .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 250px;
+                height: 100vh;
+                padding-top: H0px;
                 flex-direction: column;
-                align-items: center;
-                gap: 15px;
+                background-color: var(--white);
+                box-shadow: -5px 0 10px rgba(0, 0, 0, 0.1);
+                transition: right 0.3s ease-in-out;
+                align-items: flex-start;
+                padding: 80px 20px 20px;
+                z-index: 100;
+            }
+            
+            .nav-links.active {
+                right: 0;
             }
             
             .nav-links li {
-                margin-left: 0;
+                margin: 15px 0;
+                width: 100%;
+            }
+            
+            .hamburger.active span:nth-child(1) {
+                transform: translateY(9px) rotate(45deg);
+            }
+            
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active span:nth-child(3) {
+                transform: translateY(-9px) rotate(-45deg);
             }
             
             .page-header h1 {
@@ -224,6 +272,11 @@
         <div class="container">
             <nav class="navbar">
                 <a href="index.html" class="logo">Eazy<span>Mail</span></a>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="privacy.html">Privacy Policy</a></li>
@@ -236,7 +289,7 @@
     <section class="page-header">
         <div class="container">
             <h1>Privacy Policy</h1>
-            <p>Learn how EazyMail protects your privacy and handles your data.</p>
+            <p>How EazyMail handles your data when using Gmail integration</p>
         </div>
     </section>
 
@@ -244,72 +297,108 @@
         <div class="container">
             <div class="policy-content">
                 <h2>Introduction</h2>
-                <p>Welcome to EazyMail's Privacy Policy. Your privacy is critically important to us. EazyMail is designed with your privacy as a fundamental principle.</p>
+                <p>Welcome to EazyMail's Privacy Policy. This policy outlines how we handle your information when you use our application with Gmail through the Gmail API. Your privacy is fundamental to our service design, and we are committed to being transparent about our data practices.</p>
                 
-                <p>This Privacy Policy describes how we handle your information when you use our application that interacts with Gmail through the Gmail API. Please read this Privacy Policy carefully.</p>
+                <p>This Privacy Policy is effective as of March 24, 2025, and applies to all users of the EazyMail application.</p>
 
                 <div class="emphasis">
-                    <p><strong>Our Core Privacy Principle:</strong> EazyMail does not store, collect, or retain any of your emails or personal data on our servers. All processing occurs locally on your device.</p>
+                    <p><strong>Our Data Handling Commitment:</strong> EazyMail accesses your Gmail data solely to provide the functionality you request, and only with your explicit permission through Google's OAuth consent process. We follow Google's API Services User Data Policy including Limited Use requirements.</p>
                 </div>
 
-                <h2>Information We Access</h2>
-                <p>To provide our service, EazyMail needs access to certain information from your Gmail account through the Gmail API, including:</p>
+                <h2>Gmail API Scopes and Access</h2>
+                <p>EazyMail requests the following Gmail API scopes:</p>
                 <ul>
-                    <li>Email content</li>
-                    <li>Email metadata (sender, recipient, date, subject)</li>
-                    <li>Labels and folders</li>
+                    <li><strong>https://www.googleapis.com/auth/gmail.readonly</strong> - To read and display your emails in our interface</li>
+                    <li><strong>https://www.googleapis.com/auth/gmail.send</strong> - To send emails on your behalf when you compose messages in our application</li>
+                    <li><strong>https://www.googleapis.com/auth/gmail.labels</strong> - To display and manage your Gmail labels for better organization</li>
                 </ul>
                 
-                <h2>How We Use Information</h2>
-                <p>We use the information we access solely to:</p>
+                <h2>Information We Access</h2>
+                <p>With your permission, EazyMail accesses:</p>
+                <ul>
+                    <li>Email content - to display your emails and allow you to interact with them</li>
+                    <li>Email metadata (sender, recipient, date, subject) - to organize and display your emails effectively</li>
+                    <li>Labels and folders - to maintain your Gmail organizational structure</li>
+                </ul>
+                
+                <h2>How We Use Your Information</h2>
+                <p>The information we access is used exclusively to:</p>
                 <ul>
                     <li>Display your emails in our interface</li>
-                    <li>Apply our organizational and visualization features</li>
-                    <li>Provide custom views and styles for your email content</li>
+                    <li>Enable you to read emails using our application</li>
+                    <li>Allow you to send emails through our interface</li>
+                    <li>Organize emails using your existing Gmail labels</li>
+                    <li>Provide customized views of your email content</li>
+                </ul>
+                
+                <p>We <strong>DO NOT</strong> use your data for:</p>
+                <ul>
+                    <li>Advertising or marketing purposes</li>
+                    <li>Selling to third parties</li>
+                    <li>Developing a profile about you</li>
+                    <li>Any purpose beyond providing the direct functionality of our application</li>
                 </ul>
                 
                 <h2>Data Storage and Retention</h2>
-                <p>EazyMail does not store any of your emails or personal information on our servers. All data access and processing happen locally on your device. We do not:</p>
+                <p>EazyMail employs the following data practices:</p>
                 <ul>
-                    <li>Store copies of your emails on our servers</li>
-                    <li>Retain any personal information after you close the application</li>
-                    <li>Create databases of user information</li>
-                    <li>Sell or share any user data with third parties</li>
+                    <li>We do not permanently store copies of your full emails on our servers</li>
+                    <li>Any cached data is stored temporarily to improve performance and is only accessible to you</li>
+                    <li>We maintain authentication tokens securely to provide continuous service</li>
+                    <li>You can revoke our access to your Gmail account at any time through your <a href="https://myaccount.google.com/permissions" target="_blank">Google Account Settings</a></li>
                 </ul>
                 
-                <h2>Google API Services User Data Policy</h2>
-                <p>Our application adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank">Google API Services User Data Policy</a>, including the Limited Use requirements. This means we only use the data accessed through the Gmail API for the purposes described in this policy.</p>
-                
-                <h2>Email Content Viewing</h2>
-                <p>EazyMail only accesses your email content when you specifically request to view it. We do not:</p>
+                <h2>Google API Services User Data Policy Compliance</h2>
+                <p>EazyMail strictly adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank">Google API Services User Data Policy</a>, including the Limited Use requirements. This means:</p>
                 <ul>
-                    <li>Pre-load or batch download email content</li>
-                    <li>Scan email content for advertising purposes</li>
-                    <li>Use email content for purposes other than display and organization</li>
+                    <li>We only use Gmail API data for our application's core functionality</li>
+                    <li>We do not transfer this data to others unless necessary to provide and improve our services</li>
+                    <li>We do not use Gmail API data for serving advertisements</li>
+                    <li>We only use Gmail API data for features that are directly visible to you and with clear user benefit</li>
+                    <li>Our use of Gmail API data complies with all applicable privacy laws and regulations</li>
                 </ul>
                 
                 <h2>Data Security</h2>
-                <p>We implement appropriate security measures to protect your information when it is being processed on your device. These measures include:</p>
+                <p>We implement appropriate technical and organizational measures to protect your information:</p>
                 <ul>
-                    <li>Secure authentication with Google's OAuth 2.0</li>
-                    <li>Local-only processing of email content</li>
-                    <li>No persistent storage of credentials or email content</li>
+                    <li>Industry-standard encryption for data transmission</li>
+                    <li>Secure OAuth 2.0 authentication with Google</li>
+                    <li>Regular security assessments of our application</li>
+                    <li>Prompt updates and patches for any discovered vulnerabilities</li>
+                </ul>
+                
+                <h2>Your Rights and Control</h2>
+                <p>You maintain control over your data:</p>
+                <ul>
+                    <li>You can disconnect EazyMail from your Gmail account at any time through your <a href="https://myaccount.google.com/permissions" target="_blank">Google Account Settings</a></li>
+                    <li>You can request deletion of any cached data by contacting us</li>
+                    <li>You have the right to access information about what data our application accesses</li>
                 </ul>
                 
                 <h2>Third-Party Services</h2>
-                <p>EazyMail does not share any information with third-party services. The only connection our application makes is directly to Gmail through the official Gmail API.</p>
+                <p>EazyMail does not share your Gmail data with any third-party services. Our application interacts directly with Gmail through the official Gmail API.</p>
                 
                 <h2>Children's Privacy</h2>
-                <p>Our service is not directed to children under the age of 13, and we do not knowingly collect personal information from children under 13.</p>
+                <p>Our service is not directed to children under the age of 13, and we do not knowingly collect personal information from children under 13. If we learn that we have collected personal information from a child under 13, we will promptly delete that information.</p>
                 
                 <h2>Changes to This Privacy Policy</h2>
-                <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date below.</p>
+                <p>We may update our Privacy Policy from time to time. We will notify you of any material changes by:</p>
+                <ul>
+                    <li>Posting the new Privacy Policy on this page</li>
+                    <li>Updating the "Last Updated" date at the bottom of this page</li>
+                    <li>Sending you an email notification if we make substantial changes</li>
+                </ul>
                 
                 <h2>Contact Us</h2>
-                <p>If you have any questions about this Privacy Policy, please contact us at:</p>
-                <p>Email: mail.swap.official@gmail.com</p>
+                <p>If you have any questions about this Privacy Policy or our data practices, please contact us at:</p>
+                <p>Email: <a href="mailto:mail.swap.official@gmail.com">mail.swap.official@gmail.com</a></p>
+                <p>Address:  Gandhinagar, India</p>
+                <!-- <p>Phone: (123) 456-7890</p> -->
                 
-                <p class="last-updated">Last Updated: March 31, 2025</p>
+                <h2>Dispute Resolution</h2>
+                <p>If you have concerns about our data practices or this Privacy Policy, please contact us first. If you're not satisfied with our response, you may have the right to file a complaint with your local data protection authority.</p>
+                
+                <p class="last-updated">Last Updated: March 24, 2025</p>
             </div>
         </div>
     </section>
@@ -319,7 +408,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>EazyMail</h3>
-                    <p>A better way to experience Gmail without compromising your privacy.</p>
+                    <p>A better way to experience Gmail with enhanced views and simplified organization.</p>
                 </div>
                 <div class="footer-section">
                     <h3>Important Links</h3>
@@ -327,11 +416,14 @@
                         <li><a href="index.html">Home</a></li>
                         <li><a href="privacy.html">Privacy Policy</a></li>
                         <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank">Google API User Data Policy</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h3>Contact Us</h3>
-                    <p>Email: mail.swap.official@gmail.com</p>
+                    <p>Email: <a href="mailto:mail.swap.official@gmail.com">mail.swap.official@gmail.com</a></p>
+                    <p>Address:  Gandhinagar, India</p>
+                    <!-- <p>Phone: (123) 456-7890</p> -->
                 </div>
             </div>
             <div class="footer-bottom">
@@ -339,5 +431,27 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Hamburger menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            const navLinksItems = document.querySelectorAll('.nav-links li a');
+            
+            hamburger.addEventListener('click', function() {
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+            
+            // Close menu when a navigation link is clicked
+            navLinksItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+        });
+    </script>
 </body>
 </html>
