@@ -82,6 +82,58 @@
         .nav-links a:hover {
             color: var(--primary-color);
         }
+
+        /* Hamburger menu styles */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            width: 30px;
+            height: 20px;
+            position: relative;
+            z-index: 102;
+        }
+        
+        .hamburger span {
+            display: block;
+            position: absolute;
+            height: 3px;
+            width: 100%;
+            background: var(--primary-color);
+            border-radius: 3px;
+            opacity: 1;
+            left: 0;
+            transform: rotate(0deg);
+            transition: .25s ease-in-out;
+        }
+        
+        .hamburger span:nth-child(1) {
+            top: 0px;
+        }
+        
+        .hamburger span:nth-child(2) {
+            top: 8px;
+        }
+        
+        .hamburger span:nth-child(3) {
+            top: 16px;
+        }
+        
+        .hamburger.open span:nth-child(1) {
+            top: 8px;
+            transform: rotate(135deg);
+        }
+        
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+            left: -60px;
+        }
+        
+        .hamburger.open span:nth-child(3) {
+            top: 8px;
+            transform: rotate(-135deg);
+        }
         
         .hero {
             background: linear-gradient(135deg, var(--primary-color), #5c9ce5);
@@ -270,19 +322,40 @@
         }
         
         @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            
             .navbar {
-                flex-direction: column;
-                gap: 20px;
+                position: relative;
             }
             
             .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background-color: var(--white);
                 flex-direction: column;
                 align-items: center;
-                gap: 15px;
+                justify-content: center;
+                gap: 30px;
+                transition: right 0.3s ease;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                z-index: 101;
+            }
+            
+            .nav-links.active {
+                right: 0;
             }
             
             .nav-links li {
                 margin-left: 0;
+            }
+            
+            .nav-links a {
+                font-size: 1.2rem;
             }
             
             .hero h1 {
@@ -301,10 +374,15 @@
         <div class="container">
             <nav class="navbar">
                 <a href="index.html" class="logo">Eazy<span>Mail</span></a>
+                <button class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="https://mailswap09.github.io/privacy.html">Privacy Policy</a></li>
-                    <li><a href="https://mailswap09.github.io/terms.html">Terms of Service</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
                 </ul>
             </nav>
         </div>
@@ -432,6 +510,23 @@
                 
                 const toggle = question.querySelector('.toggle');
                 toggle.textContent = faqItem.classList.contains('active') ? '-' : '+';
+            });
+        });
+        
+        // Hamburger menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('open');
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close menu when a nav link is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('open');
+                navLinks.classList.remove('active');
             });
         });
     </script>
