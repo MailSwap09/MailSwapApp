@@ -7,12 +7,12 @@
     <title>Terms of Service | EazyMail</title>
     <style>
         :root {
-            --primary-color: #4285F4;
-            --secondary-color: #34A853;
-            --accent-color: #EA4335;
-            --text-color: #333;
-            --light-gray: #f5f5f5;
-            --white: #ffffff;
+            --primary-color: #884d14;    /* Brown */
+            --secondary-color: #f9d6bc;  /* Light Peach */
+            --accent-color: #000000;     /* Black */
+            --text-color: #333;          /* Kept as is for readability */
+            --light-gray: #f5f5f5;       /* Kept as is for background */
+            --white: #ffffff;            /* White */
             --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
         
@@ -41,6 +41,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
+            background-color: #884d14;   /* Brown */
         }
         
         .navbar {
@@ -61,7 +62,7 @@
         }
         
         .logo span {
-            color: var(--accent-color);
+            color: var(--accent-color);  /* Black */
         }
         
         .nav-links {
@@ -76,13 +77,13 @@
         
         .nav-links a {
             text-decoration: none;
-            color: var(--text-color);
+            color: var(--secondary-color);  /* Light Peach */
             font-weight: 500;
             transition: color 0.3s;
         }
         
         .nav-links a:hover {
-            color: var(--primary-color);
+            color: var(--white);            /* White */
         }
         
         /* Hamburger menu styles */
@@ -101,12 +102,12 @@
         .hamburger span {
             width: 30px;
             height: 3px;
-            background-color: var(--primary-color);
+            background-color: var(--secondary-color);  /* Brown */
             transition: all 0.3s linear;
         }
         
         .page-header {
-            background: linear-gradient(135deg, var(--primary-color), #5c9ce5);
+            background: linear-gradient(135deg, var(--primary-color), #884d14);  /* Brown gradient */
             color: var(--white);
             padding: 60px 0;
             text-align: center;
@@ -134,7 +135,7 @@
         }
         
         .terms-content h2 {
-            color: var(--primary-color);
+            color: var(--primary-color);  /* Brown */
             margin-top: 40px;
             margin-bottom: 20px;
             font-size: 1.8rem;
@@ -159,10 +160,10 @@
         }
         
         .terms-content .emphasis {
-            background-color: #f0f7ff;
+            background-color: #f9d6bc;    /* Light Peach */
             padding: 20px;
             border-radius: 8px;
-            border-left: 4px solid var(--primary-color);
+            border-left: 4px solid var(--primary-color);  /* Brown */
             margin: 30px 0;
         }
         
@@ -173,7 +174,7 @@
         }
         
         footer {
-            background-color: #333;
+            background-color: #000000;    /* Black */
             color: var(--white);
             padding: 40px 0;
         }
@@ -203,13 +204,13 @@
         }
         
         .footer-section a {
-            color: #ccc;
+            color: var(--secondary-color);  /* Light Peach */
             text-decoration: none;
             transition: color 0.3s;
         }
         
         .footer-section a:hover {
-            color: var(--primary-color);
+            color: var(--primary-color);    /* Brown */
         }
         
         .footer-bottom {
@@ -231,9 +232,9 @@
                 right: -100%;
                 width: 250px;
                 height: 100vh;
-                padding-top: H0px;
+                padding-top: 80px;
                 flex-direction: column;
-                background-color: var(--white);
+                background-color: var(--primary-color);
                 box-shadow: -5px 0 10px rgba(0, 0, 0, 0.1);
                 transition: right 0.3s ease-in-out;
                 align-items: flex-start;
@@ -243,6 +244,7 @@
             
             .nav-links.active {
                 right: 0;
+                background-color: var(--primary-color);
             }
             
             .nav-links li {
@@ -289,7 +291,7 @@
         }
         
         .table-of-contents {
-            background-color: #f8f9fa;
+            background-color: #f9d6bc;    /* Light Peach */
             padding: 20px;
             border-radius: 8px;
             margin-bottom: 40px;
@@ -305,7 +307,7 @@
         
         .table-of-contents a {
             text-decoration: none;
-            color: var(--primary-color);
+            color: var(--primary-color);  /* Brown */
         }
         
         .table-of-contents a:hover {
@@ -317,21 +319,17 @@
     <header>
         <div class="container">
             <nav class="navbar">
-                <a href="index.html" class="logo">Eazy<span>Mail</span></a>
-                
+                <a href="index.html" class="logo"><img src="nobglogo.png" alt="EazyMail Logo" style="width: 60px; height: 60px; border-radius: 100%; border: 2px solid #f9d6bc;"></a>
                 <button class="hamburger" aria-label="Toggle navigation">
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
-                
                 <ul class="nav-links">
                     <li><a href="https://mailswap09.github.io/index.html">Home</a></li>
                     <li><a href="https://mailswap09.github.io/privacy.html">Privacy Policy</a></li>
                     <li><a href="https://mailswap09.github.io/terms.html">Terms of Service</a></li>
                 </ul>
-<!--                 
-                <div class="overlay"></div> -->
             </nav>
         </div>
     </header>
@@ -455,52 +453,40 @@
 
                 <h2 id="disclaimer">9. Disclaimers and Warranties</h2>
                 <p>The app is provided "as is" and "as available," without warranty of any kind, either express or implied. To the maximum extent permitted by applicable law, we explicitly disclaim all warranties, including but not limited to warranties of merchantability, fitness for a particular purpose, and non-infringement.</p>
+                <p>We do not warrant that the app will function uninterrupted, error-free, or that defects will be corrected. We make no warranty regarding the reliability, accuracy, or completeness of the app.</p>
+                <p>You understand and agree that your use of the app is at your own risk. Some jurisdictions do not allow the exclusion of implied warranties, so the above exclusions may not apply to you.</p>
 
-<p>We do not warrant that the app will function uninterrupted, error-free, or that defects will be corrected. We make no warranty regarding the reliability, accuracy, or completeness of the app.</p>
-
-<p>You understand and agree that your use of the app is at your own risk. Some jurisdictions do not allow the exclusion of implied warranties, so the above exclusions may not apply to you.</p>
-
-<h2 id="liability">10. Limitation of Liability</h2>
-
-<p>To the maximum extent permitted by applicable law, in no event shall we, our affiliates, directors, employees, or agents be liable for any indirect, punitive, incidental, special, consequential damages, or any damages whatsoever, including, without limitation, damages for loss of profits, goodwill, use, data, or other intangible losses, resulting from:</p>
-
-<ul>
-    <li>Your access to or use of or inability to access or use the app</li>
-    <li>Any conduct or content of any third party on the app</li>
-    <li>Any content obtained from the app</li>
-    <li>Unauthorized access, use, or alteration of your transmissions or content</li>
-</ul>
-
-<p>Our total liability to you for any claim arising from or relating to these terms or the app shall not exceed the amount paid by you to us for the app during the twelve (12) months prior to such claim.</p>
-
-<p>Some jurisdictions do not allow the limitation of liability, so the above limitations may not apply to you.</p>
+                <h2 id="liability">10. Limitation of Liability</h2>
+                <p>To the maximum extent permitted by applicable law, in no event shall we, our affiliates, directors, employees, or agents be liable for any indirect, punitive, incidental, special, consequential damages, or any damages whatsoever, including, without limitation, damages for loss of profits, goodwill, use, data, or other intangible losses, resulting from:</p>
+                <ul>
+                    <li>Your access to or use of or inability to access or use the app</li>
+                    <li>Any conduct or content of any third party on the app</li>
+                    <li>Any content obtained from the app</li>
+                    <li>Unauthorized access, use, or alteration of your transmissions or content</li>
+                </ul>
+                <p>Our total liability to you for any claim arising from or relating to these terms or the app shall not exceed the amount paid by you to us for the app during the twelve (12) months prior to such claim.</p>
+                <p>Some jurisdictions do not allow the limitation of liability, so the above limitations may not apply to you.</p>
 
                 <h2 id="termination">11. Termination</h2>
                 <p>We may suspend or terminate your access to the App at any time for any reason, including if you violate these Terms.</p>
-                
                 <p>You may terminate these Terms at any time by:</p>
                 <ul>
                     <li>Uninstalling the App from your device</li>
                     <li>Revoking the App's access to your Gmail account through your <a href="https://myaccount.google.com/permissions" target="_blank">Google Account Permissions</a> page</li>
                 </ul>
-                
                 <p>Upon termination, your right to use the App will immediately cease. All provisions of these Terms which by their nature should survive termination shall survive, including, without limitation, ownership provisions, warranty disclaimers, indemnity, and limitations of liability.</p>
 
                 <h2 id="changes">12. Changes to Terms</h2>
                 <p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time. We will provide notice of significant changes to the Terms by posting a notice on our website or through the App. Your continued use of the App after such modifications will constitute your acknowledgment and acceptance of the modified Terms.</p>
-                
                 <p>We encourage you to periodically review the Terms to stay informed about our service provisions and guidelines.</p>
 
                 <h2 id="law">13. Governing Law</h2>
                 <p>These Terms shall be governed by and construed in accordance with the laws of the United States, without regard to its conflict of law principles. Any legal action or proceeding arising under these Terms shall be brought exclusively in the federal or state courts located in the United States, and you consent to the personal jurisdiction therein.</p>
-                
                 <p>If any provision of these Terms is held to be invalid or unenforceable, such provision shall be struck and the remaining provisions shall be enforced to the fullest extent under law.</p>
 
                 <h2 id="contact">14. Contact Information</h2>
                 <p>If you have any questions about these Terms, concerns about our data practices, or need assistance with our App, please contact us at:</p>
                 <p>Email: <a href="mailto:mail.swap.official@gmail.com">mail.swap.official@gmail.com</a></p>
-                <!-- <p>Website: <a href="https://www.eazymail.app">https://www.eazymail.app</a></p> -->
-                
                 <p class="last-updated">Last Updated: March 24, 2025</p>
             </div>
         </div>
@@ -519,17 +505,15 @@
                         <li><a href="https://mailswap09.github.io/index.html">Home</a></li>
                         <li><a href="https://mailswap09.github.io/privacy.html">Privacy Policy</a></li>
                         <li><a href="https://mailswap09.github.io/terms.html">Terms of Service</a></li>
-                        <!-- <li><a href="https://support.eazymail.app">Support</a></li> -->
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h3>Contact Us</h3>
                     <p>Email: <a href="mailto:mail.swap.official@gmail.com">mail.swap.official@gmail.com</a></p>
-                    <!-- <p>Website: <a href="https://www.eazymail.app">www.eazymail.app</a></p> -->
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 EazyMail. All rights reserved.</p>
+                <p>© 2025 EazyMail. All rights reserved.</p>
             </div>
         </div>
     </footer>

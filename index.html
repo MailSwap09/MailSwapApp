@@ -7,12 +7,13 @@
     <title>EazyMail - Smart Gmail Viewer</title>
     <style>
         :root {
-            --primary-color: #4285F4;
-            --secondary-color: #34A853;
-            --accent-color: #EA4335;
-            --text-color: #333;
-            --light-gray: #f5f5f5;
-            --white: #ffffff;
+            --primary-color: #884d14;    /* Brown */
+            --secondary-color: #f9d6bc;  /* Light Peach */
+            --accent-color: #000000;     /* Black */
+            --text-color: #333;          /* Kept as is for readability */
+            --nav-color: #f9d6bc;        /* Light Peach */
+            --light-gray: #f5f5f5;       /* Kept as is for background */
+            --white: #ffffff;            /* White */
             --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
         
@@ -41,6 +42,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
+            background-color: #884d14;   /* Brown */
         }
         
         .navbar {
@@ -60,7 +62,7 @@
         }
         
         .logo span {
-            color: var(--accent-color);
+            color: var(--accent-color);  /* Black */
         }
         
         .nav-links {
@@ -74,13 +76,14 @@
         
         .nav-links a {
             text-decoration: none;
-            color: var(--text-color);
+            color: #f9d6bc;              /* Light Peach */
             font-weight: 500;
+            font-size: larger;
             transition: color 0.3s;
         }
         
         .nav-links a:hover {
-            color: var(--primary-color);
+            color: white;                /* White */
         }
 
         /* Hamburger menu styles */
@@ -100,7 +103,7 @@
             position: absolute;
             height: 3px;
             width: 100%;
-            background: var(--primary-color);
+            background: var(--secondary-color);  /* Brown */
             border-radius: 3px;
             opacity: 1;
             left: 0;
@@ -136,7 +139,7 @@
         }
         
         .hero {
-            background: linear-gradient(135deg, var(--primary-color), #5c9ce5);
+            background: linear-gradient(135deg, var(--primary-color), #884d14);  /* Brown gradient */
             color: var(--white);
             padding: 100px 0;
             text-align: center;
@@ -155,17 +158,18 @@
         
         .cta-button {
             display: inline-block;
-            background-color: var(--secondary-color);
+            background-color: var(--secondary-color);  /* Light Peach */
             color: var(--white);
             padding: 12px 30px;
             border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
             transition: background-color 0.3s;
+            color: var(--primary-color);  /* Darker shade of Light Peach */
         }
         
         .cta-button:hover {
-            background-color: #2d9249;
+            background-color: #e0b998;  
         }
         
         .features {
@@ -197,7 +201,7 @@
         
         .feature-card i {
             font-size: 3rem;
-            color: var(--primary-color);
+            color: var(--primary-color);  /* Brown */
             margin-bottom: 20px;
         }
         
@@ -228,7 +232,7 @@
         }
         
         .step-number {
-            background-color: var(--primary-color);
+            background-color: var(--primary-color);  /* Brown */
             color: var(--white);
             width: 50px;
             height: 50px;
@@ -254,7 +258,7 @@
         }
         
         .faq-question {
-            background-color: var(--primary-color);
+            background-color: var(--primary-color);  /* Brown */
             color: var(--white);
             padding: 20px;
             cursor: pointer;
@@ -275,7 +279,7 @@
         }
         
         footer {
-            background-color: #333;
+            background-color: #000000;    /* Black */
             color: var(--white);
             padding: 40px 0;
         }
@@ -305,13 +309,13 @@
         }
         
         .footer-section a {
-            color: #ccc;
+            color: #f9d6bc;              /* Light Peach */
             text-decoration: none;
             transition: color 0.3s;
         }
         
         .footer-section a:hover {
-            color: var(--primary-color);
+            color: var(--primary-color);  /* Brown */
         }
         
         .footer-bottom {
@@ -323,52 +327,71 @@
         
         @media (max-width: 768px) {
             .hamburger {
-                display: block;
-            }
-            
-            .navbar {
-                position: relative;
+                display: flex;
+                z-index: 101;
             }
             
             .nav-links {
                 position: fixed;
-        top: 0;
-        right: -100%;
-        width: 250px;
-        height: 100vh;
-        padding-top: H0px;
-        flex-direction: column;
-        background-color: var(--white);
-        box-shadow: -5px 0 10px rgba(0, 0, 0, 0.1);
-        transition: right 0.3s ease-in-out;
-        align-items: flex-start;
-        padding: 80px 20px 20px;
-        z-index: 100;
+                top: 0;
+                right: -100%;
+                width: 250px;
+                height: 100vh;
+                padding-top: 80px;
+                flex-direction: column;
+                background-color: var(--primary-color);
+                box-shadow: -5px 0 10px rgba(0, 0, 0, 0.1);
+                transition: right 0.3s ease-in-out;
+                align-items: flex-start;
+                padding: 80px 20px 20px;
+                z-index: 100;
             }
             
             .nav-links.active {
                 right: 0;
+                background-color: var(--primary-color);
             }
             
             .nav-links li {
                 margin: 15px 0;
-        width: 100%;
+                width: 100%;
             }
             
             .nav-links a {
-                text-decoration: none;
-    color: var(--text-color);
-    font-weight: 500;
-    transition: color 0.3s;
+                display: block;
+                font-size: 18px;
             }
             
-            .hero h1 {
+            .overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 99;
+            }
+            
+            .overlay.active {
+                display: block;
+            }
+            
+            /* Hamburger animation */
+            .hamburger.active span:nth-child(1) {
+                transform: translateY(11px) rotate(45deg);
+            }
+            
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active span:nth-child(3) {
+                transform: translateY(-11px) rotate(-45deg);
+            }
+            
+            .page-header h1 {
                 font-size: 2rem;
-            }
-            
-            .feature-cards, .steps {
-                flex-direction: column;
-                gap: 30px;
             }
         }
     </style>
@@ -377,7 +400,7 @@
     <header>
         <div class="container">
             <nav class="navbar">
-                <a href="index.html" class="logo">Eazy<span>Mail</span></a>
+                <a href="index.html" class="logo"><img src="nobglogo.png" alt="EazyMail Logo" style="width: 60px; height: 60px; border-radius: 100%;border: 2px solid #f9d6bc;"></a>
                 <button class="hamburger">
                     <span></span>
                     <span></span>
@@ -394,7 +417,7 @@
 
     <section class="hero">
         <div class="container">
-            <h1>Better Email Experience for Gmail Users</h1>
+            <h1>Better Email Experience for Gmail Users using EazyMail</h1>
             <p>EazyMail transforms your Gmail experience with smart organization, customizable views, and enhanced readability - all without storing your data.</p>
             <a href="#" class="cta-button">Download Now</a>
         </div>
@@ -500,7 +523,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 EazyMail. All rights reserved.</p>
+                <p>© 2025 EazyMail. All rights reserved.</p>
             </div>
         </div>
     </footer>
