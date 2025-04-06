@@ -107,6 +107,56 @@
             background-color: var(--secondary-color );  /* Brown */
             transition: all 0.3s linear;
         }
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            width: 30px;
+            height: 20px;
+            position: relative;
+            z-index: 102;
+        }
+        
+        .hamburger span {
+            display: block;
+            position: absolute;
+            height: 3px;
+            width: 100%;
+            background: var(--secondary-color);  /* Light Peach */
+            border-radius: 3px;
+            opacity: 1;
+            left: 0;
+            transform: rotate(0deg);
+            transition: .25s ease-in-out;
+        }
+        
+        .hamburger span:nth-child(1) {
+        top: 0px;
+    }
+    
+    .hamburger span:nth-child(2) {
+        top: 8px;
+    }
+    
+    .hamburger span:nth-child(3) {
+        top: 16px;
+    }
+    
+    .hamburger.open span:nth-child(1) {
+        top: 8px;
+        transform: rotate(135deg);
+    }
+    
+    .hamburger.open span:nth-child(2) {
+        opacity: 0;
+        left: -60px;
+    }
+    
+    .hamburger.open span:nth-child(3) {
+        top: 8px;
+        transform: rotate(-135deg);
+    }
         
         .page-header {
             background: linear-gradient(135deg, var(--primary-color), #884d14);  /* Brown gradient */
@@ -189,6 +239,7 @@
             flex-wrap: wrap;
             justify-content: space-between;
             gap: 30px;
+            margin: 20px;
         }
         
         .footer-section {
@@ -226,74 +277,56 @@
         }
         
         @media (max-width: 768px) {
-            .hamburger {
-                display: flex;
-                z-index: 101;
-            }
-            
-            .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 250px;
-                height: 100vh;
-                padding-top: 80px;
-                flex-direction: column;
-                background-color: var(--primary-color);
-                box-shadow: -5px 0 10px rgba(0, 0, 0, 0.1);
-                transition: right 0.3s ease-in-out;
-                align-items: flex-start;
-                padding: 80px 20px 20px;
-                z-index: 100;
-            }
-            
-            .nav-links.active {
-                right: 0;
-                background-color: var(--primary-color);
-            }
-            
-            .nav-links li {
-                margin: 15px 0;
-                width: 100%;
-            }
-            
-            .nav-links a {
-                display: block;
-                font-size: 18px;
-            }
-            
-            .overlay {
-                display: none;
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-color: rgba(0, 0, 0, 0.5);
-                z-index: 99;
-            }
-            
-            .overlay.active {
-                display: block;
-            }
-            
-            /* Hamburger animation */
-            .hamburger.active span:nth-child(1) {
-                transform: translateY(11px) rotate(45deg);
-            }
-            
-            .hamburger.active span:nth-child(2) {
-                opacity: 0;
-            }
-            
-            .hamburger.active span:nth-child(3) {
-                transform: translateY(-11px) rotate(-45deg);
-            }
-            
-            .page-header h1 {
-                font-size: 2rem;
-            }
+        .hamburger {
+            display: flex;
+            z-index: 101;
         }
+        
+        .nav-links {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 250px;
+            height: 100vh;
+            padding-top: 80px;
+            flex-direction: column;
+            background-color: var(--primary-color);
+            box-shadow: -5px 0 10px rgba(0, 0, 0, 0.1);
+            transition: right 0.3s ease-in-out;
+            align-items: flex-start;
+            padding: 80px 20px 20px;
+            z-index: 100;
+        }
+        
+        .nav-links.active {
+            right: 0;
+        }
+        
+        .nav-links li {
+            margin: 15px 0;
+            width: 100%;
+        }
+        
+        .nav-links a {
+            display: block;
+            font-size: 18px;
+        }
+        
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 99;
+        }
+        
+        .overlay.active {
+            display: block;
+        }
+    }
     </style>
 </head>
 <body>
@@ -301,11 +334,11 @@
         <div class="container">
             <nav class="navbar">
                 <a href="index.html" class="logo"><img src="logo.png" alt="EazyMail Logo" style="width: 60px; height: 60px;"></a>
-                <div class="hamburger">
+                <button class="hamburger">
                     <span></span>
                     <span></span>
                     <span></span>
-                </div>
+                </button>
                 <ul class="nav-links">
                     <li><a href="https://mailswap09.github.io/index.html">Home</a></li>
                     <li><a href="https://mailswap09.github.io/privacy.html">Privacy Policy</a></li>
@@ -314,6 +347,7 @@
             </nav>
         </div>
     </header>
+    <div class="overlay"></div>
 
     <section class="page-header">
         <div class="">
@@ -458,23 +492,26 @@
     </footer>
 
     <script>
-        // Hamburger menu functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const hamburger = document.querySelector('.hamburger');
-            const navLinks = document.querySelector('.nav-links');
-            const navLinksItems = document.querySelectorAll('.nav-links li a');
-            
-            hamburger.addEventListener('click', function() {
-                hamburger.classList.toggle('active');
-                navLinks.classList.toggle('active');
-            });
-            
-            // Close menu when a navigation link is clicked
-            navLinksItems.forEach(item => {
-                item.addEventListener('click', function() {
-                    hamburger.classList.remove('active');
-                    navLinks.classList.remove('active');
-                });
+        // Hamburger menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        const overlay = document.querySelector('.overlay');
+        
+        function toggleMenu() {
+            hamburger.classList.toggle('open');
+            navLinks.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+        
+        hamburger.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+        
+        // Close menu when a nav link is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinks.classList.contains('active')) {
+                    toggleMenu();
+                }
             });
         });
     </script>
